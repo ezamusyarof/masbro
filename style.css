@@ -14,6 +14,21 @@ body .judul {
     font-size: 60px;
     color:white;
 }
+body .judul p {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+body .note {
+    width: 100%;
+}
+body .note p{
+    width: 100%;
+    text-align: center;
+    margin: 20px 0 0 0;
+    font-weight: 200;
+    font-size: 30px;
+    color: #0a3a07;
+}
 body .judul .masbro-tx {
     font-weight: 700;
     color: rgb(244, 210, 165);
@@ -30,14 +45,53 @@ body .box .mini-box {
     margin: 2px;
     border: 2px solid rgb(255, 255, 255);
 }
-body .box .mini-box-empty {
-    width: 135px;
-    background-color: rgba(255, 255, 255, 0);
-    margin: 2px;
-    border: 2px solid rgb(255, 255, 255);
-    border-style: dashed;
-}
 body .mini-box img {
     width: 100%;
     height: 100%;
+}
+body .box-btn {
+    margin-top: 20px;
+    width: 80%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+body .restart-btn {
+    cursor: pointer;
+    text-align: center;
+    width: 120px;
+    height: 32px;
+    background-color: aliceblue;
+    font-size: 20px;
+    border-radius: 8px;
+    color: #0a3a07;
+    margin: auto 10px;
+}
+body .restart-btn p {
+    margin-top: 5px;
+}
+body .restart-btn:hover {
+    background-color: #0a3a07;
+    color: aliceblue;
+    transition: 0.2s;
+}
+body .cover {
+    display: none;
+}
+@media screen and (max-width: 700px) {
+    body .cover {
+        display: block;
+        position: absolute;
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+        margin-top: -10px;
+        background-color: rgba(240, 248, 255, 0.748);
+        text-align: center;
+    }
+    body .cover p {
+        margin: 60% 20px 0px 20px;
+        font-size: 20px;
+        padding: 30px;
+    }
 }

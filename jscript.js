@@ -1,80 +1,84 @@
+let cur_img, empty_id, cur_m, cur_m_img;
+let index = ['8','1','6','3','2','4','5','7','0']
 
-// var masbro1 = document.getElementById("masbro1");
-// var masbro2 = document.getElementById("masbro2");
-
-// console.log(masbro1);
-
-// masbro1.ondragstart = function(evt){
-//     evt.dataTransfer.setData('key','dragElement')
-//     console.log("dragging...");
-//     // document.getElementById('masbro1').style.display = 'none';
-// }
-// masbro2.ondragover = function(evt){
-//     evt.preventDefault();
-//     console.log("drag over...");
-// }
-// masbro2.ondrop = function(evt){
-//     evt.dataTransfer.getData('key');
-//     evt.preventDefault();
-//     console.log("dropped");
-// }
-
-let cur_img = '';
 function selected_img(id){
     cur_img = id;
-    console.log(cur_img);
+    for(let i=0; i<9; i++){
+        if (index[i] == '0'){ cur_m = "m"+(i+1); }
+        if (index[i] == cur_img[6]){ cur_m_img = "m"+(i+1); }
+    }
+
+    console.log("cur_m    : "+cur_m)
+    console.log("cur_m_img: "+cur_m_img)
+    console.log("cur_img  : "+cur_img)
+    console.log(index);
+
     var selected_drag = document.getElementById(cur_img);
     selected_drag.ondragstart = function(evt){
         evt.dataTransfer.setData('key','dragElement')
-        console.log("dragging...");
-        console.log(selected_drag);
-        // document.getElementById('masbro1').style.display = 'none';
+        console.log(cur_img+" dragging...");
+    }
+    
+    masbro0.ondragover = function(evt){
+        evt.preventDefault();
+        console.log(cur_img+" drag over "+cur_m);
     }
 
-    empty.ondragover = function(evt){
-        evt.preventDefault();
-        console.log("drag over...");
-    }
-    empty.ondrop = function(evt){
+    masbro0.ondrop = function(evt){
+        console.log(cur_img+" dropped at "+cur_m);
+        
         evt.dataTransfer.getData('key');
         evt.preventDefault();
-        console.log("dropped");
-        document.getElementById("masbro0").src = document.getElementById(cur_img).src;
-        document.getElementById("masbro0").draggable = document.getElementById(cur_img).draggable;
-        document.getElementById("masbro0").alt = document.getElementById(cur_img).alt;
-        document.getElementById("masbro0").onmouseover = document.getElementById(cur_img).onmouseover;
-        document.getElementById("empty").classList.remove('mini-box-empty');
-        document.getElementById("empty").classList.add('mini-box');
 
-    //     var edit_save = document.getElementById("edit-save");
-    // edit_save.onclick = function(){
-    //    this.src = "../template/save.png";
-    // }
+        document.getElementById("masbro0").src = selected_drag.src;
+        document.getElementById("masbro0").draggable = "true";
+        document.getElementById("masbro0").alt = selected_drag.alt;
+        document.getElementById("masbro0").onmouseover = selected_drag.onmouseover;
+
+        for (let i=0; i<9; i++){
+            if (index[i]=='0'){
+                index[i]=cur_img[6];
+                index[cur_m_img[1]-1]='0';
+            }
+        }
+
+        document.getElementById(cur_img).src = "";
+        document.getElementById(cur_img).draggable = "";
+        document.getElementById(cur_img).alt = "";
+        document.getElementById(cur_img).onmouseover = "";
+
+        var elem = document.getElementById(cur_img);
+        elem.parentNode.removeChild(elem);
+
+        document.getElementById("masbro0").id = cur_img;
+
+        var img = document.createElement("img");
+        img.id = "masbro0";
+        document.getElementById(cur_m_img).appendChild(img);
+        check_img();
     }
 }
 
+function check_img(){
+    console.log("check")
+    let index_win = ['1','2','3','4','5','6','7','8','0'];
+    if (index[0] == index_win[0] &&
+        index[1] == index_win[1] &&
+        index[2] == index_win[2] &&
+        index[3] == index_win[3] &&
+        index[4] == index_win[4] &&
+        index[5] == index_win[5] &&
+        index[6] == index_win[6] &&
+        index[7] == index_win[7] &&
+        index[8] == index_win[8]
+        ){
+        document.getElementById("note").innerHTML = "Halo masbro!";
+        console.log("menang");
+    }
+    console.log(index);
+    console.log(index_win);
+}
 
-
-
-
-// const draggableElements = document.querySelectorAll(".mini-box");
-// const droppableElement = document.querySelector(".mini-box-empty");
-
-// draggableElements.forEach(elem => {
-//     elem.addEventListener("dragstart", dragStart);
-//     // elem.addEventListener("dragstart", drag);
-//     // elem.addEventListener("dragstart", dragEnd);
-// });
-
-// droppableElement.forEach(elem => {
-//     // elem.addEventListener("dragenter", dragEnter);
-//     elem.addEventListener("dragover", dragOver);
-//     // elem.addEventListener("dragleave", dragLeave);
-//     elem.addEventListener("drop", drop);
-// })
-
-// function dragStart(event) {
-//     console.log("dragging...");
-//     console.log(event);
-//     event.dataTransfer.setData("text", event.target.color);
-// }
+function restart(){
+    loaction.reload()
+}

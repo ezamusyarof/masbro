@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Puzzle Masbro</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,16 +13,23 @@
         <p class="masbro-tx">MasBro</p>
     </div>
     <div class="box">
-        <div class="mini-box"><img id="masbro1" src="masbro (1).jpg" draggable="true" alt="masbro1" onmouseover="selected_img('masbro1')"></div>
-        <div class="mini-box"><img id="masbro2" src="masbro (2).jpg" draggable="true" alt="masbro2" onmouseover="selected_img('masbro2')"></div>
-        <div class="mini-box"><img id="masbro3" src="masbro (3).jpg" draggable="true" alt="masbro3" onmouseover="selected_img('masbro3')"></div>
-        <div class="mini-box"><img id="masbro4" src="masbro (4).jpg" draggable="true" alt="masbro4" onmouseover="selected_img('masbro4')"></div>
-        <div class="mini-box"><img id="masbro5" src="masbro (5).jpg" draggable="true" alt="masbro5" onmouseover="selected_img('masbro5')"></div>
-        <div class="mini-box"><img id="masbro6" src="masbro (6).jpg" draggable="true" alt="masbro6" onmouseover="selected_img('masbro6')"></div>
-        <div class="mini-box"><img id="masbro7" src="masbro (7).jpg" draggable="true" alt="masbro7" onmouseover="selected_img('masbro7')"></div>
-        <div class="mini-box"><img id="masbro8" src="masbro (8).jpg" draggable="true" alt="masbro8" onmouseover="selected_img('masbro8')"></div>
-        <div id="empty" class="mini-box-empty"><img id="masbro0" src="" alt=""></div>
+        <div id="m1" class="mini-box"><img id="masbro8" src="masbro (8).jpg" draggable="true" alt="masbro8" onmouseover="selected_img('masbro8')"></div>
+        <div id="m2" class="mini-box"><img id="masbro1" src="masbro (1).jpg" draggable="true" alt="masbro1" onmouseover="selected_img('masbro1')"></div>
+        <div id="m3" class="mini-box"><img id="masbro6" src="masbro (6).jpg" draggable="true" alt="masbro6" onmouseover="selected_img('masbro6')"></div>
+        <div id="m4" class="mini-box"><img id="masbro3" src="masbro (3).jpg" draggable="true" alt="masbro3" onmouseover="selected_img('masbro3')"></div>
+        <div id="m5" class="mini-box"><img id="masbro2" src="masbro (2).jpg" draggable="true" alt="masbro2" onmouseover="selected_img('masbro2')"></div>
+        <div id="m6" class="mini-box"><img id="masbro4" src="masbro (4).jpg" draggable="true" alt="masbro4" onmouseover="selected_img('masbro4')"></div>
+        <div id="m7" class="mini-box"><img id="masbro5" src="masbro (5).jpg" draggable="true" alt="masbro5" onmouseover="selected_img('masbro5')"></div>
+        <div id="m8" class="mini-box"><img id="masbro7" src="masbro (7).jpg" draggable="true" alt="masbro7" onmouseover="selected_img('masbro7')"></div>
+        <div id="m9" class="mini-box"><img id="masbro0"></div>
     </div>
+    <div class="box-btn">
+        <div class="restart-btn" onclick="location.reload()">
+            <p>Restart</p>
+        </div>
+    </div>
+    <div class="note"><p id="note"></p></div>
+    <div class="cover"><p>Maaf masbro, gamenya hanya bisa dimainin di desktop 🙏</p></div>
 </body>
 <script src="jscript.js"></script>
 </html>
